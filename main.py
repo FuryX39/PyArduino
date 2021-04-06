@@ -4,9 +4,10 @@ import serial
 import time
 
 leftHand = serial.Serial('com1', 9600)
-rightHand = serial.Serial('com2', 9600)
-time.sleep(2)
+time.sleep(1)
 print(leftHand.readline())
+rightHand = serial.Serial('com2', 9600)
+time.sleep(1)
 print(rightHand.readline())
 
 
