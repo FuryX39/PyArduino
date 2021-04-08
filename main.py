@@ -28,9 +28,6 @@ def Action(impAction: str):
         rightHand.write(helloType.encode())
         print(rightHand.readline())
 
-        leftHand.write(helloType.encode())
-        print(leftHand.readline())
-
     elif impAction == 'Pathfinder':
 
         print('Python response: Pathfinder action')
@@ -47,9 +44,6 @@ def Action(impAction: str):
 
         rightHand.write('3'.encode())
         print(rightHand.readline())
-
-        leftHand.write('3'.encode())
-        print(leftHand.readline())
 
     else:
 
