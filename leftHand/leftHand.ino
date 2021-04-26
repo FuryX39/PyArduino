@@ -33,15 +33,18 @@ void setup() {
 }
  
 void loop() {
-  if(Serial.available() == '0'){
-    Serial.println("Arduino response: Handshake action completed");
-  } else if (Serial.available() == '1') {
-    Serial.println("Arduino response: Brofist action completed");
-  } else if (Serial.available() == '2') {
-    Serial.println("Arduino response: Pathfinder action completed");
-  } else if (Serial.available() == '3') {
-    Serial.println("Arduino response: Bye action completed");
-  } else if (Serial.available() == '4') {
-    Serial.println("Arduino response: Unknown action completed");
+  if(Serial.available() > 0){
+    impAction = Serial.read();
+    if (impAction == '0') {
+      Serial.println("Arduino response: Handshake action completed");
+    } else if (impAction == '1') {
+      Serial.println("Arduino response: Brofist action completed");
+    } else if (impAction == '2') {
+      Serial.println("Arduino response: Pathfinder action completed");
+    } else if (impAction == '3') {
+      Serial.println("Arduino response: Bye action completed");
+    } else if (impAction == '4') {
+      Serial.println("Arduino response: Unknown action completed");
+    }
   }
 }
