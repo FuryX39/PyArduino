@@ -3,9 +3,9 @@ from random import randint
 import serial
 import time
 
-#leftHand = serial.Serial('com6', 9600)
-#time.sleep(1)
-#print(leftHand.readline())
+leftHand = serial.Serial('com6', 9600)
+time.sleep(1)
+print(leftHand.readline())
 rightHand = serial.Serial('com6', 9600)
 time.sleep(1)
 print(rightHand.readline())
@@ -13,44 +13,44 @@ print(rightHand.readline())
 
 def Action(impAction: str):
     """Передается действие в виде строки
-    При передаче действия Hello рандомно определяется вид приветствия - рукопожатие или брофист
-    При передаче неизвестного действия выполняется Unknown action"""
+    При передаче действия Привет рандомно определяется вид приветствия - рукопожатие или брофист
+    При передаче неизвестного действия выполняется Неизвестное действие"""
 
-    if impAction == 'Hello':
+    if impAction == 'Привет':
 
         helloType = str(randint(0, 1))
 
         if helloType == '0':
-            print('Python response: Handshake action')
+            print('Ответ Python: Рукопожатие')
         else:
-            print('Python response: Brofist action')
+            print('Ответ Python: Брофист')
 
         rightHand.write(helloType.encode())
         print(rightHand.readline())
 
-    elif impAction == 'Pathfinder':
+    elif impAction == 'Патфайндер':
 
-        print('Python response: Pathfinder action')
+        print('Ответ Python: Патфайндер')
 
         rightHand.write('2'.encode())
         print(rightHand.readline())
 
-        #leftHand.write('2'.encode())
-        #print(leftHand.readline())
+        leftHand.write('2'.encode())
+        print(leftHand.readline())
 
-    elif impAction == 'Bye':
+    elif impAction == 'Пока':
 
-        print('Python response: Bye action')
+        print('Ответ Python: Прощание')
 
         rightHand.write('3'.encode())
         print(rightHand.readline())
 
     else:
 
-        print('Python response: Unknown action')
+        print('Ответ Python: Неизвестное действие')
 
         rightHand.write('4'.encode())
         print(rightHand.readline())
 
-        #leftHand.write('4'.encode())
-        #print(leftHand.readline())
+        leftHand.write('4'.encode())
+        print(leftHand.readline())
